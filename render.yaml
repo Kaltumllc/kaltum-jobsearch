@@ -1,9 +1,10 @@
 services:
-  - type: worker
-    name: kaltum-jobsearch-worker
+  - type: web
+    name: kaltum-jobsearch
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py followup
+    startCommand: python server.py
     envVars:
       - key: ANTHROPIC_API_KEY
         sync: false
