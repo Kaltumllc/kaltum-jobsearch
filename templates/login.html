@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - {{ app_name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css?v=auth2">
+</head>
+
+<body class="login-body">
+    <main class="login-shell">
+        <section class="login-card">
+            <p class="eyebrow">Kaltum LLC &middot; Secure Access</p>
+            <h1>Welcome Back</h1>
+            <p class="subtitle">
+                Sign in to manage job applications, follow-ups, exports, and AI-assisted workflow tools.
+            </p>
+
+            {% if error %}
+                <div class="error-box">{{ error }}</div>
+            {% endif %}
+
+            <form method="post" action="/login" class="login-form">
+                <label>
+                    Username
+                    <input name="username" type="text" placeholder="admin" required>
+                </label>
+
+                <label>
+                    Password
+                    <input name="password" type="password" placeholder="Enter password" required>
+                </label>
+
+                <button type="submit">Sign In</button>
+            </form>
+
+            <p class="login-note">
+                Authorized Kaltum users only. Contact the administrator if you need access.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
