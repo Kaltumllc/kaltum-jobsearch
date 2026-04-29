@@ -1,0 +1,8 @@
+.env
+*.db
+__pycache__/
+*.pyc
+.venv/
+venv/
+fix_export.py
+patch_export.py

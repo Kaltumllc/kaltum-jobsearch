@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: kaltum-jobsearch-worker
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py followup
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ADZUNA_APP_ID
+        sync: false
+      - key: ADZUNA_API_KEY
+        sync: false
