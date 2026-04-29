@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Login - {{ app_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css?v=auth2">
+    <link rel="stylesheet" href="/static/style.css?v=auth3">
 </head>
 
 <body class="login-body">
@@ -13,7 +13,7 @@
             <p class="eyebrow">Kaltum LLC &middot; Secure Access</p>
             <h1>Welcome Back</h1>
             <p class="subtitle">
-                Sign in to manage job applications, follow-ups, exports, and AI-assisted workflow tools.
+                Sign in to manage your Kaltum CareerOps dashboard.
             </p>
 
             {% if error %}
@@ -23,12 +23,12 @@
             <form method="post" action="/login" class="login-form">
                 <label>
                     Username
-                    <input name="username" type="text" placeholder="admin" required>
+                    <input name="username" type="text" placeholder="Username" required>
                 </label>
 
                 <label>
                     Password
-                    <input name="password" type="password" placeholder="Enter password" required>
+                    <input name="password" type="password" placeholder="Password" required>
                 </label>
 
                 <button type="submit">Sign In</button>

@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <title>{{ app_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style.css?v=theme2">
 </head>
 
 <body>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+        <span class="toggle-track">
+            <span class="toggle-thumb" id="themeIcon"></span>
+        </span>
+        <span id="themeText">Light Mode</span>
+    </button>
+
     <header class="hero">
         <div class="hero-content">
             <p class="eyebrow">Kaltum LLC &middot; Innovation Across Borders</p>
@@ -20,9 +28,6 @@
             <div class="hero-actions">
                 <a href="/health" class="btn secondary">Health Check</a>
                 <a href="/followup" class="btn">Check Follow-Ups</a>
-                <a href="https://github.com/Kaltumllc/kaltum-jobsearch" target="_blank" class="btn outline">
-                    GitHub Repo
-                </a>
             </div>
         </div>
     </header>
@@ -130,5 +135,36 @@
     <footer>
         <p>Kaltum Job Search Assistant &middot; Phase 2 Professional Dashboard &middot; Built with FastAPI and Render</p>
     </footer>
+
+
+
+
+<script>
+(function () {
+    const themeToggle = document.getElementById("themeToggle");
+    const themeText = document.getElementById("themeText");
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("kaltum-theme", theme);
+
+        if (theme === "light") {
+            themeText.textContent = "Dark Mode";
+        } else {
+            themeText.textContent = "Light Mode";
+        }
+    }
+
+    const savedTheme = localStorage.getItem("kaltum-theme") || "dark";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", function () {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const nextTheme = currentTheme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme);
+    });
+})();
+</script>
+
 </body>
 </html>
